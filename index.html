@@ -1,4 +1,114 @@
-<!doctype html><html lang="ko"><head><title></title><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>div,li,ol,p,ul{margin:0;padding:0}header{padding:10px;margin-bottom:80px}header div{text-align:center}header a{position:relative;left:77px}header ul{float:right;list-style:none;margin:0;padding:0}header ul li{display:inline-block;margin-left:10px;padding:5px 10px;color:#fff;background-color:#2fa599;border-radius:3px 3px 3px 3px}header ul li:hover{cursor:pointer}header a:hover{cursor:pointer}.charge{display:block;margin:0 auto;padding:15px 30px;width:500px;height:160px;color:#fff;background-color:#2fa599;border-radius:8px 8px 8px 8px}.charge p{font-size:20px;margin-bottom:1em}.charge p:nth-child(2){font-size:30px}.charge p em{text-shadow:5px 5px 10px rgba(0,0,0,.3)}.charge ul{float:right;list-style:none}.charge ul li{font-size:1.2em;float:left;margin-left:20px}.charge ul li a{display:block;padding:5px;border:1px solid #fff;border-radius:8px 8px 8px 8px;color:#fff;text-decoration:none}</style><script defer="defer" src="/homework/static/js/main.373d6c0f.js"></script><link href="/homework/static/css/main.073c9b0a.css" rel="stylesheet"></head><body><span id="money-charge-pay"></span><script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script><script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script><script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script><script type="text/babel">const jsonLocalStorage = {
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    div,
+    p,
+    ul,
+    ol,
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 10px;
+      margin-bottom: 80px;
+      /* 원하는 간격 설정 */
+    }
+
+    header div {
+      text-align: center;
+    }
+
+    header a {
+      position: relative;
+      left: 77px;
+    }
+
+    header ul {
+      float: right;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    header ul li {
+      display: inline-block;
+      margin-left: 10px;
+      padding: 5px 10px;
+      color: #fff;
+      background-color: #2FA599;
+      border-radius: 3px 3px 3px 3px;
+    }
+
+    header ul li:hover {
+      cursor: pointer;
+    }
+
+    header a:hover {
+      cursor: pointer;
+    }
+
+    .charge {
+      display: block;
+      margin: 0 auto;
+      padding: 15px 30px;
+      width: 500px;
+      height: 160px;
+      color: #fff;
+      background-color: #2FA599;
+      border-radius: 8px 8px 8px 8px;
+    }
+
+    .charge p {
+      font-size: 20px;
+      margin-bottom: 1em;
+    }
+
+    .charge p:nth-child(2) {
+      font-size: 30px;
+    }
+
+    .charge p em {
+      text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .charge ul {
+      float: right;
+      list-style: none;
+    }
+
+    .charge ul li {
+      font-size: 1.2em;
+      float: left;
+      margin-left: 20px;
+    }
+
+    .charge ul li a {
+      display: block;
+      padding: 5px;
+      border: 1px solid #fff;
+      border-radius: 8px 8px 8px 8px;
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <span id="money-charge-pay"></span>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel">
+    const jsonLocalStorage = {
       setItem: (key, value) => {
         localStorage.setItem(key, JSON.stringify(value))
       },
@@ -44,8 +154,8 @@
 
 
     const App = () => {
-      const [chargeMoney, setChargeMoney] = React.useState(jsonLocalStorage.getItem('money') || 0);
-      const [payMoney, setPayMoney] = React.useState(jsonLocalStorage.getItem('money'));
+      const [chargeMoney, setChargeMoney] = React.useState(parseInt(jsonLocalStorage.getItem('money')) || 0);
+      const [payMoney, setPayMoney] = React.useState(parseInt(jsonLocalStorage.getItem('money')));
 
       function handleChargeClick(event) {
         setChargeMoney((prev) => {
@@ -80,4 +190,8 @@
 
 
     const moneyChargePay = document.querySelector('#money-charge-pay');
-    ReactDOM.createRoot(moneyChargePay).render(<App />);</script></body></html>
+    ReactDOM.createRoot(moneyChargePay).render(<App />);
+  </script>
+</body>
+
+</html>
